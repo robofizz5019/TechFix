@@ -21,20 +21,19 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-            position: fixed; /* Cambiado a fixed */
-            width: 100%; /* Asegura que cubra toda la parte superior */
-            top: 0; /* Fija la posición en la parte superior */
-            left: 0; /* Asegura que comience desde el lado izquierdo */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
             background-color: #111;
-            z-index: 1000; /* Asegura que el header esté por encima del resto */
+            z-index: 1000;
         }
 
         h1 {
-            font-size: 40px;
+            font-size: 2rem; /* Cambiado a rem */
             text-transform: uppercase;
             margin: 0;
             color: #fff;
-            position: static;
         }
 
         /* Barra superior con RGB animado */
@@ -44,8 +43,8 @@
             background: linear-gradient(90deg, red, yellow, green, blue, purple);
             background-size: 400%;
             animation: rgbHeader 10s linear infinite;
-            position: absolute; /* Cambiado a absolute */
-            top: 60px; /* Ajustar según el alto del header */
+            position: absolute;
+            top: 60px;
         }
 
         @keyframes rgbHeader {
@@ -54,7 +53,7 @@
         }
 
         .container {
-            padding: 100px 50px 50px; /* Añadido padding superior para el header fijo */
+            padding: 100px 20px 50px; /* Ajustado el padding */
         }
 
         /* Estilo de secciones con distintos tamaños */
@@ -80,13 +79,13 @@
 
         h2 {
             color: #ff0066;
-            font-size: 24px;
+            font-size: 1.5rem; /* Cambiado a rem */
             text-transform: uppercase;
             margin-bottom: 10px;
         }
 
         p {
-            font-size: 16px;
+            font-size: 1rem; /* Cambiado a rem */
             line-height: 1.5;
         }
 
@@ -108,7 +107,7 @@
             border: none;
             text-align: left;
             outline: none;
-            font-size: 18px;
+            font-size: 1rem; /* Cambiado a rem */
             transition: background-color 0.4s ease;
         }
 
@@ -178,6 +177,25 @@
             color: #fff;
             margin-top: 10px;
         }
+
+        /* Media Queries para móviles */
+        @media (max-width: 768px) {
+            .section {
+                grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+            }
+
+            h1 {
+                font-size: 1.5rem; /* Tamaño más pequeño para móviles */
+            }
+
+            h2 {
+                font-size: 1.25rem; /* Tamaño más pequeño para móviles */
+            }
+
+            p {
+                font-size: 0.875rem; /* Tamaño más pequeño para móviles */
+            }
+        }
     </style>
 </head>
 <body>
@@ -236,34 +254,34 @@
 
         <button class="accordion">¿Cuánto tiempo tarda la optimización?</button>
         <div class="panel">
-            <p>Generalmente toma entre 1 a 3 horas, dependiendo de la cantidad de software que se deba eliminar y del estado general del sistema.</p>
+            <p>Generalmente toma entre 1 y 3 horas, dependiendo del estado del equipo.</p>
         </div>
 
-        <button class="accordion">¿Reparan todos los tipos de computadoras?</button>
+        <button class="accordion">¿Hacen servicios a domicilio?</button>
         <div class="panel">
-            <p>Sí, reparamos tanto computadoras de escritorio como laptops, y trabajamos con todos los sistemas operativos más comunes.</p>
+            <p>Sí, ofrecemos servicio a domicilio bajo solicitud previa.</p>
         </div>
 
-        <button class="accordion">¿Ofrecen garantía en las reparaciones?</button>
+        <button class="accordion">¿Qué tipo de hardware reparan?</button>
         <div class="panel">
-            <p>Sí, todas nuestras reparaciones tienen una garantía de 5 días por cualquier problema relacionado con el servicio realizado.</p>
+            <p>Reparamos todos los componentes internos y externos, incluyendo tarjetas madre, discos duros, y pantallas.</p>
         </div>
 
-        <button class="button" id="contactButton">Solicita tu cita</button>
-        <div class="contact-info" id="contactInfo">
-            <p>Contáctanos: <strong>+56 9 3346 4967</strong></p>
+        <!-- Botón de contacto -->
+        <div style="text-align: center;">
+            <a href="mailto:contacto@techfix.cl" class="button">Contáctanos</a>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 TechFix - Todos los derechos reservados. | <a href="#">Política de Privacidad</a></p>
+        <p>&copy; 2024 TechFix. Todos los derechos reservados. <br> <a href="privacy.html">Política de Privacidad</a></p>
     </footer>
 
     <script>
-        // Funcionalidad para los cuadros plegables
-        const accordions = document.getElementsByClassName("accordion");
-        for (let i = 0; i < accordions.length; i++) {
-            accordions[i].addEventListener("click", function() {
+        // Script para el funcionamiento del accordion
+        const acc = document.getElementsByClassName("accordion");
+        for (let i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
                 this.classList.toggle("active");
                 const panel = this.nextElementSibling;
                 if (panel.style.maxHeight) {
@@ -273,19 +291,6 @@
                 }
             });
         }
-
-        // Funcionalidad para mostrar el contacto al solicitar cita
-        const contactButton = document.getElementById("contactButton");
-        const contactInfo = document.getElementById("contactInfo");
-
-        contactButton.addEventListener("click", () => {
-            if (contactInfo.style.maxHeight) {
-                contactInfo.style.maxHeight = null;
-            } else {
-                contactInfo.style.maxHeight = "100px"; // Establece una altura máxima al mostrar
-            }
-        });
     </script>
-
 </body>
 </html>
